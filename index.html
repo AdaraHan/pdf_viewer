@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请输入密码查看</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f2f5; }
+        .container { text-align: center; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        input[type="password"] { padding: 10px; margin: 20px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; border: none; background-color: #007bff; color: white; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #message { color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>此内容已加密，请输入密码</h2>
+        <input type="password" id="passwordInput" placeholder="请输入密码">
+        <br>
+        <button onclick="checkPassword()">确认</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        // 在这里修改你的密码和PDF链接
+        const correctPassword = "069"; // 替换为你想设置的密码
+        const pdfUrl = "https://banshishouce-1311515873.cos.ap-beijing.myqcloud.com/%E4%BA%BA%E6%96%87%E5%AD%A6%E9%99%A2%E6%9C%BA%E5%85%B3%E5%8A%9E%E4%BA%8B%E6%89%8B%E5%86%8C-20250912.pdf?ci-process=doc-preview&dstType=html"; // 替换为第一步中获取的Google Drive链接
+
+        function checkPassword() {
+            const enteredPassword = document.getElementById("passwordInput").value;
+            const messageDiv = document.getElementById("message");
+
+            if (enteredPassword === correctPassword) {
+                window.location.href = pdfUrl; // 密码正确则跳转
+            } else {
+                messageDiv.textContent = "密码不正确，请重试！";
+            }
+        }
+    </script>
+</body>
+</html>
